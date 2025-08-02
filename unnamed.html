@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JM Multi-Services | Vitrine Officielle</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+        }
+        .banner {
+            width: 100%;
+            max-height: 500px;
+            overflow: hidden;
+            margin-bottom: -4px; /* Enlève l'espace entre la bannière et le header */
+        }
+        .banner img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        header {
+            background-color: #0cae00;
+            color: rgb(0, 0, 0);
+            text-align: center;
+            padding: 50px 20px;
+        }
+        header img {
+            width: 150px;
+            margin-bottom: 20px;
+        }
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+            background-color: black;
+            margin: 0;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: rgb(255, 255, 255);
+            text-decoration: none;
+            padding: 15px 20px;
+            display: block;
+        }
+        nav ul li a:hover {
+            background-color: #000000;
+        }
+        section {
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .gallery-grid figure {
+            position: relative;
+            text-align: center;
+        }
+        .gallery-grid a {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+        }
+        .gallery-grid img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+        .gallery-grid img:hover {
+            transform: scale(1.05);
+        }
+        figcaption {
+            margin-top: 5px;
+            font-style: italic;
+            color: #2c3e50;
+        }
+        #myModal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            padding-top: 60px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.9);
+        }
+        .modal-content {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin: 5% auto;
+            max-width: 800px;
+        }
+        .modal-content img {
+            width: 40%;
+            height: auto;
+            border-radius: 10px;
+        }
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+#map {
+            height: 400px;
+            width: 100%;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="banner">
+    <img src="Capture d'écran 2025-05-13 002414.png" alt="Bannière JM Multi-Services">
+</div>
+
+
+<nav>
+    <ul>
+        <li><a href="#about">À propos</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#gallery">Réalisations</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<section id="about">
+    <h2>À propos de nous</h2>
+    <p>JM Multi-Services est une entreprise artisanale spécialisée dans les interventions de bricolage, rénovation et entretien. Que ce soit pour un dépannage rapide, une installation ou une rénovation complète, nous sommes là pour vous accompagner dans vos projets.</p>
+</section>
+
+<section id="services">
+    <h2>Nos Services</h2>
+    <ul>
+        <li>Plomberie et dépannage sanitaire</li>
+        <li>Électricité et installation de luminaires</li>
+        <li>Montage de meubles et agencement intérieur</li>
+        <li>Rénovation de pièces (peinture, carrelage, sol, etc.)</li>
+        <li>Entretien et réparation divers</li>
+    </ul>
+</section>
+
+<section id="gallery">
+    <h2>Nos Réalisations</h2>
+    <div class="gallery-grid">
+        <figure>
+            <img src="rénov.png" alt="Réalisation 1">
+            <figcaption>Salles de Bains</figcaption>
+        </figure>
+        <figure>
+            <img src="balconet.png" alt="Réalisation 2">
+            <figcaption>Extérieur</figcaption>
+        </figure>
+        <figure>
+            <a href="#" onclick="openModal()">
+                <img src="reparation.png" alt="Réalisation 3">
+                <figcaption>Chauffe Eau</figcaption>
+            </a>
+        </figure>
+    </div>
+</section>
+
+<div id="myModal" class="modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <div class="modal-content">
+        <img src="balcon debut.jpg" alt="Balcon Début">
+        <img src="balcon milieu.jpg" alt="Balcon Milieu">
+        <img src="balcon fin.jpg" alt="Balcon Fin">
+    </div>
+</div>
+
+<script>
+    function openModal() {
+        document.getElementById("myModal").style.display = "block";
+    }
+    function closeModal() {
+        document.getElementById("myModal").style.display = "none";
+    }
+</script>
+
+<section id="contact">
+    <h2>Contactez-nous</h2>
+    ...
+</section>
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<script>
+    var map = L.map('map').setView([48.650002, 2.435227], 15);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+    L.marker([48.650002, 2.435227]).addTo(map)
+        .bindPopup('JM Multi-Services - Soisy-sur-Seine')
+        .openPopup();
+</script>
+
+<footer>
+    <p>© 2025 JM Multi-Services - Tous droits réservés.</p>
+</footer>
+
+</body>
+</html>"
